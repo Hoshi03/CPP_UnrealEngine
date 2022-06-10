@@ -28,6 +28,8 @@ AMyActor::AMyActor()
 void AMyActor::BeginPlay()
 {
 	Super::BeginPlay();
+	//로그 찍기 
+	UE_LOG(LogTemp, Error, TEXT("BeginPlay %d"), 3);
 	
 }
 
@@ -35,6 +37,8 @@ void AMyActor::BeginPlay()
 void AMyActor::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
+	//UE_LOG(LogTemp, Error, TEXT("Tick %f"), DeltaTime);
+	//물체 돌려주기
+	AddActorLocalRotation(FRotator(0.f, rotatespeed * DeltaTime, 0.f));
 }
 
